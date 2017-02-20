@@ -1,0 +1,33 @@
+<div md-dialog-title class="text-center">
+    <h3>Login</h3>
+    <hr/>
+</div>
+<div>
+    <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+    <form [formGroup]="userFormGroup" class="form-horizontal" novalidate (ngSubmit)="login(userFormGroup.value, userFormGroup.valid)">
+        <md-dialog-content>
+            <md-input-container>
+                <input md-input formControlName="UserName" placeholder="Username / Email" required>
+            </md-input-container>
+            <br/>
+            <md-input-container>
+                <input md-input type="password" formControlName="Password" placeholder="Password" required>
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <div class="text-center">
+                <button md-icon-button md-fab color="accent" type="submit" [disabled]="!userFormGroup.valid">Login</button>
+                <button type="button" md-fab (click)="dialogRef.close()">Cancel</button>
+            </div>
+            <br/>
+            <div class="text-center">
+                <a (click)="forgetPassword()" routerLinkActive="active">
+                    <p>Forget Password</p>
+                </a>
+                <a (click)="signUp()" routerLinkActive="active">
+                    <p>Signup</p>
+                </a>
+            </div>
+        </md-dialog-actions>
+    </form>
+</div>
