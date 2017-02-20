@@ -1,0 +1,44 @@
+<div md-dialog-title class="text-center">
+    <h3>Register</h3>
+    <hr/>
+</div>
+<div>
+    <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+    <form [formGroup]="userFormGroup" class="form-horizontal" novalidate (ngSubmit)="register(userFormGroup.value, userFormGroup.valid)">
+        <md-dialog-content>
+            <md-input-container>
+                <input type="text" md-input formControlName="Name" placeholder="Name" mdTooltip={{toolTips.Name}}
+                    mdTooltipPosition="after" required>
+                    
+            </md-input-container>
+            <br/>
+            <md-input-container>
+                <input type="text" md-input formControlName="Email" placeholder="Email" mdTooltip={{toolTips.Email}}
+                    mdTooltipPosition="after" required>
+            </md-input-container>
+            <br/>
+            <md-input-container>
+                <input type="text" md-input formControlName="UserName" placeholder="UserName" mdTooltip={{toolTips.UserName}}
+                    mdTooltipPosition="after" required>
+            </md-input-container>
+           <button md-fab type="button" (click)="checkUsernameAvailability()"><small>Check</small></button>
+            <br/>
+            <md-input-container>
+                <input type="password" md-input formControlName="Password" placeholder="Password" mdTooltip={{toolTips.Password}}
+                    mdTooltipPosition="after" required>
+            </md-input-container>
+            <br/>
+            <md-input-container>
+                <input type="password" md-input formControlName="ConfirmPassword" placeholder="ConfirmPassword" mdTooltip={{toolTips.ConfirmPassword}} required>
+            </md-input-container>
+        </md-dialog-content>
+        <br/>
+        <md-dialog-actions class="text-center">
+            <button md-fab type="submit" [disabled]="!userFormGroup.valid">Register</button>
+            <button md-fab type="button" (click)="closeDialog()">Cancel</button>
+        </md-dialog-actions>
+    </form>
+   
+    <div>
+    </div>
+</div>
