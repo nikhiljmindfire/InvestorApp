@@ -1,0 +1,25 @@
+<nav class="navbar navbar-fixed-top navbar-dark navbar-inverse">
+  <div class="container-fluid">
+    <a class="navbar-brand nav-link" [routerLink]="['/LandingScreen']">
+      <img [src]="favicon" />
+    </a>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item"><a target="_self" class="nav-link" *ngIf="!(isLoggedIn )" (click)="openDialog($event)">Login</a></li>
+      <li class="nav-item"><a class="nav-link" *ngIf="(isLoggedIn)" [routerLink]="['/LandingScreen']">Logout</a></li>
+      <li class="nav-item"><a class="nav-link" *ngIf="!(isLoggedIn )" (click)="openDialog($event)">Signup</a></li>
+      <li> </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="col-md-12">
+    <router-outlet>
+    </router-outlet>
+  </div>
+</div>
+<hr/>
+<footer class="footer jumbotron">
+  <div class="container">
+    <p class="text-muted">Copyright &copy; -2017</p>
+  </div>
+</footer>
